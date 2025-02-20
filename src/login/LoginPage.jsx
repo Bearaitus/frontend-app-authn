@@ -127,12 +127,12 @@ const LoginPage = (props) => {
     const fieldErrors = { ...errors };
 
     if (emailOrUsername === '') {
-      fieldErrors.emailOrUsername = "Enter your username or email address";
+      fieldErrors.emailOrUsername = "Введите ваш логин или почтовый адрес";
     } else if (emailOrUsername.length < 2) {
       fieldErrors.emailOrUsername = formatMessage(messages['username.or.email.format.validation.less.chars.message']);
     }
     if (password === '') {
-      fieldErrors.password = "Password criteria not met";
+      fieldErrors.password = "Пароль не соответсвует требованиям";
     }
 
     return { ...fieldErrors };
