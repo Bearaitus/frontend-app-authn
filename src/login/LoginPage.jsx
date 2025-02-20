@@ -127,12 +127,12 @@ const LoginPage = (props) => {
     const fieldErrors = { ...errors };
 
     if (emailOrUsername === '') {
-      fieldErrors.emailOrUsername = "Enter your username or email address";
+      fieldErrors.emailOrUsername = "Введите ваш логин";
     } else if (emailOrUsername.length < 2) {
       fieldErrors.emailOrUsername = formatMessage(messages['username.or.email.format.validation.less.chars.message']);
     }
     if (password === '') {
-      fieldErrors.password = "Password criteria not met";
+      fieldErrors.password = "Критерии пароля не соблюдены";
     }
 
     return { ...fieldErrors };
@@ -202,7 +202,7 @@ const LoginPage = (props) => {
   return (
     <>
       <Helmet>
-        <title>Sign in | PT EdTechLab</title>
+        <title>Войти | PT EdTechLab</title>
       </Helmet>
       <RedirectLogistration
         success={loginResult.success}
