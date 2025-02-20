@@ -104,7 +104,7 @@ const Logistration = (props) => {
             <>
               {institutionLogin && (
                 <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
-                  <Tab title="Sign in" eventKey={LOGIN_PAGE} />
+                  <Tab title="Вход" eventKey={LOGIN_PAGE} />
                 </Tabs>
               )}
               <div id="main-content" className="main-content">
@@ -120,12 +120,12 @@ const Logistration = (props) => {
               {institutionLogin
                 ? (
                   <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
-                    <Tab title="Sign in" eventKey={selectedPage === LOGIN_PAGE ? LOGIN_PAGE : REGISTER_PAGE} />
+                    <Tab title="Вход" eventKey={selectedPage === LOGIN_PAGE ? LOGIN_PAGE : REGISTER_PAGE} />
                   </Tabs>
                 )
                 : (!isValidTpaHint() && !hideRegistrationLink && (
                   <Tabs defaultActiveKey={selectedPage} id="controlled-tab" onSelect={(tabKey) => handleOnSelect(tabKey, selectedPage)}>
-                    <Tab title="Sign in" eventKey={LOGIN_PAGE} />
+                    <Tab title="Вход" eventKey={LOGIN_PAGE} />
                   </Tabs>
                 ))}
               { key && (

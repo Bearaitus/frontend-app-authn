@@ -231,7 +231,7 @@ const LoginPage = (props) => {
             handleChange={handleOnChange}
             handleFocus={handleOnFocus}
             errorMessage={errors.emailOrUsername}
-            floatingLabel="Email or Username"
+            floatingLabel="Почта или логин"
           />
           <PasswordField
             name="password"
@@ -242,7 +242,7 @@ const LoginPage = (props) => {
             handleChange={handleOnChange}
             handleFocus={handleOnFocus}
             errorMessage={errors.password}
-            floatingLabel="Password"
+            floatingLabel="Пароль"
           />
           <StatefulButton
             name="sign-in"
@@ -252,7 +252,7 @@ const LoginPage = (props) => {
             className="login-button-width"
             state={submitState}
             labels={{
-              default: "Sign in",
+              default: "Вход",
               pending: '',
             }}
             onClick={handleSubmit}
