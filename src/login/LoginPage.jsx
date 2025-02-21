@@ -202,7 +202,7 @@ const LoginPage = (props) => {
   return (
     <>
       <Helmet>
-        <title>Войти | PT EdTechLab</title>
+        <title>Вход | PT EdTechLab</title>
       </Helmet>
       <RedirectLogistration
         success={loginResult.success}
@@ -252,7 +252,7 @@ const LoginPage = (props) => {
             className="login-button-width"
             state={submitState}
             labels={{
-              default: "Войти",
+              default: "Вход",
               pending: '',
             }}
             onClick={handleSubmit}
