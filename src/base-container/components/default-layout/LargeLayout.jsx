@@ -5,7 +5,7 @@ import { useIntl } from '@edx/frontend-platform/i18n';
 import { Hyperlink, Image } from '@openedx/paragon';
 import classNames from 'classnames';
 
-import backgroundImage from './background.gif';
+import backgroundImage from './authn-background.jpg';
 
 import messages from './messages';
 
@@ -16,15 +16,13 @@ const LargeLayout = () => {
     <div
       className="d-flex justify-content-center align-items-center text-white text-center"
       style={{
-        backgroundColor: '#FF0000',
+        backgroundColor: '#FFFFFF',
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         minHeight: '100vh',
       }}
     >
-      <h1 style={{ fontSize: '3rem', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
-        Страница авторизации
-      </h1>
     </div>
   );
 };
