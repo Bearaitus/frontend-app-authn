@@ -13,7 +13,7 @@ const LargeLayout = () => {
   const { formatMessage } = useIntl();
 
   return (
-    <div className="w-50 d-flex bg-primary-500">
+    <div className="w-50 d-flex">
       
       <div className="col-md-12" style={{
     backgroundImage: `url(${backgroundImage})`,
