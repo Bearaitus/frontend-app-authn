@@ -11,8 +11,7 @@ const MediumLayout = () => {
   const { formatMessage } = useIntl();
 
   return (
-    <>
-    </>
+    null
   );
 };
 
