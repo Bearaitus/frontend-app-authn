@@ -15,12 +15,7 @@ const LargeLayout = () => {
   return (
     <div className="w-50 d-flex bg-primary-500">
       
-      <div className="col-md-12 bg-primary-100" style={{
-    backgroundImage: `url(${backgroundVideo})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center"
-  }}
-  >
+      <div className="col-md-12 bg-primary-100">
         <div className="min-vh-100 d-flex align-items-center">
           <div className={classNames({ 'large-yellow-line mr-n4.5': getConfig().SITE_NAME === 'edX' })} />
           
