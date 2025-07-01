@@ -5,7 +5,7 @@ import { useIntl } from '@edx/frontend-platform/i18n';
 import { Hyperlink, Image } from '@openedx/paragon';
 import classNames from 'classnames';
 
-import backgroundImage from './authn-background.jpg';
+import backgroundImage from './authn-background.jpg'
 
 import messages from './messages';
 
@@ -13,16 +13,20 @@ const LargeLayout = () => {
   const { formatMessage } = useIntl();
 
   return (
-    <div
-      className="d-flex justify-content-center align-items-center text-white text-center"
-      style={{
-        backgroundColor: '#FFFFFF',
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        minHeight: '100vh',
-      }}
-    >
+    <div className="w-50 d-flex bg-primary-500">
+      
+      <div className="col-md-12" style={{
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center"
+  }}
+  >
+        <div className="min-vh-100 d-flex align-items-center">
+          <div className={classNames({ 'large-yellow-line mr-n4.5': getConfig().SITE_NAME === 'edX' })} />
+          
+        </div>
+      </div>
+      
     </div>
   );
 };
