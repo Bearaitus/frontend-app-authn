@@ -127,7 +127,7 @@ const LoginPage = (props) => {
     const fieldErrors = { ...errors };
 
     if (emailOrUsername === '') {
-      fieldErrors.emailOrUsername = "Введите имя пользователя";
+      fieldErrors.emailOrUsername = "Логин неверный";
     } else if (emailOrUsername.length < 2) {
       fieldErrors.emailOrUsername = formatMessage(messages['username.or.email.format.validation.less.chars.message']);
     }
