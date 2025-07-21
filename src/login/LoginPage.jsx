@@ -127,12 +127,12 @@ const LoginPage = (props) => {
     const fieldErrors = { ...errors };
 
     if (emailOrUsername === '') {
-      fieldErrors.emailOrUsername = "Введите ваш логин или почтовый адрес";
+      fieldErrors.emailOrUsername = "Логин неверный";
     } else if (emailOrUsername.length < 2) {
       fieldErrors.emailOrUsername = formatMessage(messages['username.or.email.format.validation.less.chars.message']);
     }
     if (password === '') {
-      fieldErrors.password = "Пароль не соответсвует требованиям";
+      fieldErrors.password = "Пароль неверный";
     }
 
     return { ...fieldErrors };
@@ -202,7 +202,7 @@ const LoginPage = (props) => {
   return (
     <>
       <Helmet>
-        <title>Sign in | PT EdTechLab</title>
+        <title>Вход | PT EdTechLab</title>
       </Helmet>
       <RedirectLogistration
         success={loginResult.success}
@@ -231,7 +231,7 @@ const LoginPage = (props) => {
             handleChange={handleOnChange}
             handleFocus={handleOnFocus}
             errorMessage={errors.emailOrUsername}
-            floatingLabel="Почта или логин"
+            floatingLabel="Логин"
           />
           <PasswordField
             name="password"

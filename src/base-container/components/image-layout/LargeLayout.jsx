@@ -13,7 +13,6 @@ const LargeLayout = () => {
   return (
     <div
       className="w-50 bg-primary-500 banner__image large-layout"
-      style={{ backgroundImage: `url(${backgroundVideo})` }}
     >
       
       <div className="min-vh-100 p-5 d-flex align-items-end">

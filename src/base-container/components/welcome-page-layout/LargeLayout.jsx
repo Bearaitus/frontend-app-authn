@@ -12,7 +12,7 @@ const LargeLayout = ({ fullName }) => {
   const { formatMessage } = useIntl();
 
   return (
-    <div className="w-50 d-flex bg-primary-500 banner__image large-layout" style={{ backgroundImage: `url(${backgroundVideo})` }}>
+    <div className="w-50 d-flex bg-primary-500 banner__image large-layout">
       <div className="col-md-10 bg-light-200 p-0">
         
         <div className="min-vh-100 d-flex align-items-center">
