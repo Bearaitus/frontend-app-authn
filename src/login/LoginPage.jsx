@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { connect } from 'react-redux';
-
 import { getConfig } from '@edx/frontend-platform';
 import { sendPageEvent, sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { injectIntl, useIntl } from '@edx/frontend-platform/i18n';
@@ -11,7 +10,6 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
-
 import AccountActivationMessage from './AccountActivationMessage';
 import {
   backupLoginFormBegin,
@@ -71,7 +69,6 @@ const LoginPage = (props) => {
   const { formatMessage } = useIntl();
   const activationMsgType = getActivationStatus();
   const queryParams = useMemo(() => getAllPossibleQueryParams(), []);
-
   const [formFields, setFormFields] = useState({ ...backedUpFormData.formFields });
   const [errorCode, setErrorCode] = useState({ type: '', count: 0, context: {} });
   const [errors, setErrors] = useState({ ...backedUpFormData.errors });
@@ -88,6 +85,7 @@ const LoginPage = (props) => {
     }
     getTPADataFromBackend(payload);
   }, [getTPADataFromBackend, queryParams, tpaHint]);
+
   /**
    * Backup the login form in redux when login page is toggled.
    */
@@ -125,16 +123,14 @@ const LoginPage = (props) => {
   const validateFormFields = (payload) => {
     const { emailOrUsername, password } = payload;
     const fieldErrors = { ...errors };
-
     if (emailOrUsername === '') {
-      fieldErrors.emailOrUsername = "Логин неверный";
+      fieldErrors.emailOrUsername = "Invalid login";
     } else if (emailOrUsername.length < 2) {
       fieldErrors.emailOrUsername = formatMessage(messages['username.or.email.format.validation.less.chars.message']);
     }
     if (password === '') {
-      fieldErrors.password = "Пароль неверный";
+      fieldErrors.password = "Invalid password";
     }
-
     return { ...fieldErrors };
   };
 
@@ -143,7 +139,6 @@ const LoginPage = (props) => {
     if (showResetPasswordSuccessBanner) {
       props.dismissPasswordResetBanner();
     }
-
     const formData = { ...formFields };
     const validationErrors = validateFormFields(formData);
     if (validationErrors.emailOrUsername || validationErrors.password) {
@@ -151,7 +146,6 @@ const LoginPage = (props) => {
       setErrorCode(prevState => ({ type: INVALID_FORM, count: prevState.count + 1, context: {} }));
       return;
     }
-
     // add query params to the payload
     const payload = {
       email_or_username: formData.emailOrUsername,
@@ -170,6 +164,7 @@ const LoginPage = (props) => {
     const { name } = event.target;
     setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
   };
+
   const trackForgotPasswordLinkClick = () => {
     sendTrackEvent('edx.bi.password-reset_form.toggled', { category: 'user-engagement' });
   };
@@ -180,12 +175,10 @@ const LoginPage = (props) => {
     if (thirdPartyAuthApiStatus === PENDING_STATE) {
       return <Skeleton height={36} />;
     }
-
     if (skipHintedLogin) {
       window.location.href = getConfig().LMS_BASE_URL + provider.loginUrl;
       return null;
     }
-
     if (provider) {
       return <EnterpriseSSO provider={provider} />;
     }
@@ -199,10 +192,11 @@ const LoginPage = (props) => {
       />
     );
   }
+
   return (
     <>
       <Helmet>
-        <title>Вход | PT EdTechLab</title>
+        <title>Login | PT EdTechLab</title>
       </Helmet>
       <RedirectLogistration
         success={loginResult.success}
@@ -231,7 +225,7 @@ const LoginPage = (props) => {
             handleChange={handleOnChange}
             handleFocus={handleOnFocus}
             errorMessage={errors.emailOrUsername}
-            floatingLabel="Логин"
+            floatingLabel="Login"
           />
           <PasswordField
             name="password"
@@ -242,7 +236,7 @@ const LoginPage = (props) => {
             handleChange={handleOnChange}
             handleFocus={handleOnFocus}
             errorMessage={errors.password}
-            floatingLabel="Пароль"
+            floatingLabel="Password"
           />
           <StatefulButton
             name="sign-in"
@@ -252,7 +246,7 @@ const LoginPage = (props) => {
             className="login-button-width"
             state={submitState}
             labels={{
-              default: "Вход",
+              default: "Login",
               pending: '',
             }}
             onClick={handleSubmit}
